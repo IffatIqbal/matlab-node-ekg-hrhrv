@@ -115,8 +115,8 @@ function plotRPeaks(time, imodwtrec, locs, qrspeaks)
     plot(time,imodwtrec, 'LineWidth', 1.2)
     hold on
     plot(locs,qrspeaks,'ro', 'LineWidth', 1.2)
-    xlabel('Zeit in Sekunden')
-    title('Automatisch detektierte R-Zacken')
+    xlabel('time in seconds')
+    title('Automatically detected R waves')
     axis([58.5 60.5 0 0.03])
     set(rpeak_fig,'units', 'centimeters', 'position', [10 10 15 7.5]);
     
@@ -178,19 +178,19 @@ function plotModwt(mod_wt, time)
         title(sprintf('Level %d', i));
         if i == 1
             axis([30 36 -0.025 0.025])
-            xlabel('Zeit in Sekunden')
+            xlabel('Time in seconds')
         elseif i == 2
             axis([30 36 -0.08 0.08])
-            xlabel('Zeit in Sekunden')
+            xlabel('Time in seconds')
         elseif i == 3
             axis([30 36 -0.18 0.12])
-            xlabel('Zeit in Sekunden')
+            xlabel('Time in seconds')
         elseif i == 4
             axis([30 36 -0.18 0.15])
-            xlabel('Zeit in Sekunden')
+            xlabel('Time in seconds')
         elseif i == 5
             axis([30 36 -0.18 0.15])
-            xlabel('Zeit in Sekunden')
+            xlabel('Time in seconds')
         end
     end
     
@@ -225,7 +225,7 @@ function barPlot(hrvValues)
     bar(hrvValues);
     axis([0 90 0 1.2]);
     title('heart rate variability');
-    ylabel('RR-Intervalle in Sekunden');
+    ylabel('RR-Intervals in seconds');
     set(hrv_fig,'units','centimeters', 'position', [10 10 15 5]);
     
     % Print to file
@@ -240,13 +240,13 @@ function TwoBarPlot(hrvValues, hrvValues2)
     bar(hrvValues);
     axis([0 52 0 1.5]);
     title('heart rate variability');
-    ylabel('RR-Intervalle in Sekunden');
+    ylabel('RR-Intervals in seconds');
     
     subplot(1,2,2);
     bar(hrvValues2);
     axis([0 54 0 1.5]);
     title('heart rate variability');
-    ylabel('RR-Intervalle in Sekunden');
+    ylabel('RR-Intervals in seconds');
     
     set(hrv_fig,'units','centimeters', 'position', [10 10 20 5]);
     
@@ -258,8 +258,8 @@ end
 function histogramPlot(hrvValues)
     hist_fig = figure();
     histogram(hrvValues,'Normalization','probability','BinWidth',0.05)
-    ylabel('Häufigkeit');
-    xlabel('Zeitdifferenz in Sekunden');
+    ylabel('frequency');
+    xlabel('Time difference in seconds');
     set(hist_fig,'units','centimeters', 'position', [10 10 15 7.5]);
     
     % Print to file
@@ -271,13 +271,13 @@ function TwoHistogramPlot(hrvValues, hrvValues2)
     hist_fig = figure();
     subplot(1,2,1);
     histogram(hrvValues,'Normalization','probability','BinWidth',0.05)
-    ylabel('Häufigkeit');
-    xlabel('Zeitdifferenz in Sekunden');
+    ylabel('frequency');
+    xlabel('Time difference in seconds');
     
     subplot(1,2,2);
     histogram(hrvValues2,'Normalization','probability','BinWidth',0.05)
-    ylabel('Häufigkeit');
-    xlabel('Zeitdifferenz in Sekunden');
+    ylabel('frequency');
+    xlabel('Time difference in seconds');
     
     set(hist_fig,'units','centimeters', 'position', [10 10 15 7.5]);
     
@@ -298,8 +298,8 @@ function scatterPlot(hrvValues)
     scatter_fig = figure();
     scatter(scatter_x, scatter_y);
     axis([0.8 1.4 0.6 1.6]);
-    ylabel('Zeitdifferenz 2 in Sekunden');
-    xlabel('Zeitdifferenz 1 in Sekunden');
+    ylabel('Time difference 2 in seconds');
+    xlabel('Time difference 1 in seconds');
     set(scatter_fig,'units','centimeters', 'position', [10 10 15 7.5]);
     
     % Print to file
@@ -312,8 +312,8 @@ function multipleHrvPlots(hrvValues)
     %subplot(2,2,1)
     %bar(hrvValues);
     %axis([0 65 0 1.3]);
-    %title('Balkendiagramm');
-    %ylabel('RR-Intervalle in Sekunden');
+    %title('bargraph');
+    %ylabel('RR-Interval in seconds');
     
     subplot(1,2,1)
     histogram(hrvValues,'Normalization','probability','BinWidth',0.05)
@@ -332,7 +332,7 @@ function multipleHrvPlots(hrvValues)
     subplot(1,2,2)
     scatter(scatter_x, scatter_y);
     axis([0.8 1.3 0.6 1.6]);
-    title('Streudiagramm');
+    title('scatterplot');
     
     set(hrv_fig,'units','centimeters', 'position', [10 10 18 7.5]);
     
@@ -349,9 +349,9 @@ function plotEcgFiltUnfilt(time, ecgValues, filteredValues)
     plot(time,filteredValues,'LineWidth', 1.2);
     axis([32.5 34.5 0.45 1.15])
     title('Noisy ECG vs Filtered ECG');
-    xlabel('Zeit in Sekunden');
-    ylabel('Spannung in Millivolt');
-    legend('ungefiltert','gefiltert');
+    xlabel('Time in seconds');
+    ylabel('Tension in Millivolt');
+    legend('unfiltered','filtered');
     
     set(ecg_fig,'units','centimeters', 'position', [10 10 18 7.5]);
     
@@ -365,8 +365,8 @@ function plotEcg(time, ecgValues, tit)
     plot(time, ecgValues, 'LineWidth', 1.2);
     axis([18 24 0.4 1])
     title(tit);
-    xlabel('Zeit in Sekunden');
-    ylabel('Spannung in Millivolt');
+    xlabel('time in seconds');
+    ylabel('tension in millivolt');
     set(ecg_fig,'units','centimeters', 'position', [10 10 18 5]);
     set(gca,'LooseInset',get(gca,'TightInset'));
     
@@ -393,20 +393,20 @@ function plotMultEcgs(filteredData, filteredData2, filteredData3, time, time2, t
         plot(time, filteredData, 'LineWidth', 1.2);
         axis([30 36 0.2 1])
         title('Einthoven I');
-        xlabel('Zeit in Sekunden');
-        ylabel('Spannung in Millivolt');
+        xlabel('Time in seconds');
+        ylabel('Tension in Millivolt');
     subplot(3,1,2);
         plot(time2, filteredData2, 'LineWidth', 1.2);
         axis([30 36 0.4 1.1])
         title('Einthoven II');
-        xlabel('Zeit in Sekunden');
-        ylabel('Spannung in Millivolt');
+        xlabel('Time in seconds');
+        ylabel('Tension in Millivolt');
     subplot(3,1,3);
         plot(time3, filteredData3, 'LineWidth', 1.2);
         axis([30 36 0.4 1.2])
         title('Einthoven III');
-        xlabel('Zeit in Sekunden');
-        ylabel('Spannung in Millivolt');
+        xlabel('Time in seconds');
+        ylabel('Tension in Millivolt');
 
     set(mult_ecg_fig,'units','centimeters', 'position', [5 0 30 16.875]);
     
@@ -426,14 +426,14 @@ function plotEcgAndRPeaks(ecgValues, time, imodwtrec, locs, qrspeaks)
     subplot(2,1,1);
     plot(time, ecgValues, 'LineWidth', 1.2);
     axis([21 24 0.4 1])
-    xlabel('Zeit in Sekunden');
-    ylabel('Spannung in Millivolt');
+    xlabel('Time in seconds');
+    ylabel('Tension in Millivolt');
     
     subplot(2,1,2);
     plot(time,imodwtrec, 'LineWidth', 1.2)
     hold on
     plot(locs,qrspeaks,'ro', 'LineWidth', 1.2)
-    xlabel('Zeit in Sekunden')
+    xlabel('Time in seconds')
     axis([21 24 0 0.035])
     
     % Specify a custom update function to your data cursor object
